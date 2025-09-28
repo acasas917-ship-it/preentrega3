@@ -1,0 +1,88 @@
+$color-primario: #004080;
+$color-fondo: #f8f9fa;
+$espaciado: 1.5rem;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%boton-base {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: $color-fondo;
+
+  header {
+    background-color: $color-primario;
+    @include flex-center;
+    padding: $espaciado;
+
+    h1 {
+      color: white;
+    }
+
+    img {
+      width: 120px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  nav {
+    background-color: $color-primario;
+  }
+
+  footer {
+    background-color: $color-primario;
+    color: white;
+    text-align: center;
+    padding: $espaciado;
+  }
+}
+
+.logo-img {
+  max-width: 120px; /* antes era 200px */
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+.logo-equipo {
+  max-width: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-personalizado {
+  @extend %boton-base;
+  background-color: $color-primario;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
